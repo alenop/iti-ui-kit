@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import ItiButton from "./components/ItiButton.vue"
-import ItiModal from "./components/ItiModal.vue"
-import ItiDropdown from "./components/ItiDropdown.vue"
-import ItiDropdownItem from "./components/ItiDropdownItem.vue"
-import ItiProgressBar from "./components/ItiProgressBar.vue"
+import { ref } from "vue";
+import ItiButton from "./components/ItiButton.vue";
+import ItiModal from "./components/ItiModal.vue";
+import ItiDropdown from "./components/ItiDropdown.vue";
+import ItiDropdownItem from "./components/ItiDropdownItem.vue";
+import ItiProgressBar from "./components/ItiProgressBar.vue";
 
-const progress = ref(0)
+const progress = ref(0);
 
 function incrementProgress() {
   if (progress.value < 100) {
-    progress.value += 10
+    progress.value += 10;
   } else {
-    progress.value = 0
+    progress.value = 0;
   }
 }
 
 setInterval(() => {
-  incrementProgress()
-}, 500)
+  incrementProgress();
+}, 500);
 </script>
 
 <template>
@@ -44,6 +44,21 @@ setInterval(() => {
         <iti-button color="primary" shape="rounded"> Primary </iti-button>
       </div>
     </div>
+
+    <hr />
+    <h2>Progress Bar</h2>
+
+    <h3>Primary color</h3>
+    <div class="demo">
+      <iti-progress-bar :progress="progress" />
+    </div>
+    <hr />
+
+    <h3>Secondary color</h3>
+    <div class="demo">
+      <iti-progress-bar color="secondary" :progress="50" />
+    </div>
+
     <hr />
 
     <h2>Modal</h2>
@@ -72,20 +87,6 @@ setInterval(() => {
           <iti-dropdown-item> Item B </iti-dropdown-item>
         </template>
       </iti-dropdown>
-    </div>
-
-    <hr />
-    <h2>Progress Bar</h2>
-
-    <h3>Primary color</h3>
-    <div class="demo">
-      <iti-progress-bar :progress="progress" />
-    </div>
-    <hr />
-
-    <h3>Secondary color</h3>
-    <div class="demo">
-      <iti-progress-bar color="secondary" :progress="50" />
     </div>
   </main>
 </template>
