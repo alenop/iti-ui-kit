@@ -1,4 +1,7 @@
-<template></template>
+<template>
+  <iti-button color="primary" ><slot></slot></iti-button>
+
+</template>
 
 <style scoped>
 .dropdown-menu-item {
